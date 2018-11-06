@@ -163,8 +163,16 @@ request.then(function(values){
   	// more hints:
   	//  - first, create an event handler that will take the lat / long
   	//    and update an HTML (div) element with that information
+    function mapHoverHandler(eventObject) {
+        console.log('event object', eventObject);
+        console.log('mouse lat/long', eventObject.latlng)
+        // update mouse coordinates HTML element with event latlng
+        
+        document.getElementById("mouseCoordinatesBox").innerHTML="newtext";
+    }
   	//  - second, register an event listener with the map
   	//    (something like map.on(....))
+    map.on('mousemove', mapHoverHandler);
   	//  - when it doubt use Google
   	//    (something to the effect of "leaflet display mouse coordinates"
   	//    should help)
